@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Картотека нутрицевтиков</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/index}">Картотека нутрицевтиков</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bstarget="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle
+navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <hr/>
+    <a th:href="@{/addSupplementForm}" class="btn btn-primary">Создать запись</a>
+    <br/><br/>
+    <table class="table table-bordered table-striped" id="projectTable">
+        <thead>
+        <tr>
+            <th> Наименование </th>
+            <th> Описание </th>
+            <th> Категория </th>
+            <th> Изготовитель </th>
+            <th> Стоимость </th>
+            <th> Остаток (шт) </th>
+            <th> Срок годности </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="supplement: ${supplements}">
+            <td th:text="${supplement.name}" />
+            <td th:text="${supplement.description}" />
+            <td th:text="${supplement.category}" />
+            <td th:text="${supplement.manufacturer}" />
+            <td th:text="${supplement.price}" />
+            <td th:text="${supplement.stock}" />
+            <td th:text="${supplement.expirationDate}" />
+            <td>
+                <a th:href="@{/showUpdateForm(supplementId=${supplement.id})}" class="btn btninfo">Изменить</a>
+                <a th:href="@{/deleteSupplement(supplementId=${supplement.id})}" class="btn btn-danger ml2">Удалить</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt1.10.25/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#studentTable").DataTable({
+            'aoColumnDefs': [{
+                'bSortable': false,
+                'aTargets': [-1] /* 1st one, start by the right */
+            }]
+        });
+    })
+</script>
+</body></html>
