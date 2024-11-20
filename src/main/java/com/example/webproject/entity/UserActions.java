@@ -19,9 +19,12 @@ public class UserActions {
     @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
     @Column(name = "date_action")
     private String date_actions;
+    
     @Column(name = "description")
     private String description;
 

@@ -18,9 +18,12 @@ import java.util.List;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
-    @Column
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "name")
     private String name;
+
     @ManyToMany(mappedBy = "roles")
     private List<User> users = new ArrayList<>();
 

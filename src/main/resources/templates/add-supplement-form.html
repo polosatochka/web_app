@@ -19,11 +19,11 @@ navigation">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/login}">Войти</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
-                       th:href="@{/register}">Register</a>
+                       th:href="@{/register}">Регистрация</a>
                 </li>
             </ul>
         </div>
@@ -31,7 +31,7 @@ navigation">
 </nav>
 <div class="container">
     <hr/>
-    <h3>Add New project </h3>
+    <h3>Создать новую запись</h3>
     <hr/>
     <form th:action="@{/saveSupplementForm}" th:object="${supplement}" method="POST">
         <input type="text" th:field="*{name}" class="form-control col-4 mb-4" placeholder="Введите наименование нутрицевтика"/>
