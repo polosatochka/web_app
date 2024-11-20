@@ -12,6 +12,7 @@ import com.example.webproject.repository.UserRepository;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.persistence.*;
 
 @Service
 public class UserServiceImpl implements UserService {

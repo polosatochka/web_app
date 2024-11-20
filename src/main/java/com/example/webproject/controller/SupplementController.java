@@ -39,7 +39,7 @@ public class SupplementController {
     public ModelAndView addNewSupplementForm() {
         ModelAndView mav = new ModelAndView("add-supplement-form");
         Supplement supplement = new Supplement();
-        mav.addObject("supplements", supplement);
+        mav.addObject("supplement", supplement);
         userActionsService.savelog("User creates new supplement record");
         return mav;
     }
